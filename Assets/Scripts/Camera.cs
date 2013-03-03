@@ -16,8 +16,8 @@ public class Camera : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		Random.seed = (int)(Time.time*Time.deltaTime);
-		plus = (Random.Range(0,100) >= 90) ? !plus : plus;
+		Random.seed = (int)(Time.time*Time.deltaTime*1000);
+		plus = (Random.Range(0,1000) >= 999) ? !plus : plus;
 		rotY = (plus) ? rotY+speed : rotY-speed;
 		this.transform.rotation = Quaternion.Euler(rotX, rotY, 0);
 	}

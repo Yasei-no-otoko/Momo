@@ -18,7 +18,7 @@ public class EnemyController : MonoBehaviour {
 	}
 	
 	void OnTriggerEnter (Collider t) {
-		if (t.name == "Player")
+		if (t.name == "Player" || t.name == "Base")
 		{
 			Debug.Log ("Triggerd");
 			DestroyObject(this.gameObject);
