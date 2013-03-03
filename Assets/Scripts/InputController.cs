@@ -17,6 +17,7 @@ public class InputController : MonoBehaviour {
 	void Start () {
 		x = this.transform.position.x;
 		z = this.transform.position.z;
+		translateAxis();
 	}
 	
 	// Update is called once per frame
