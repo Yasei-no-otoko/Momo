@@ -7,6 +7,7 @@ public class Camera : MonoBehaviour {
 	public float rotY = 0.0f;
 	
 	private float rotX = 0.0f;
+	private bool plus = true;
 
 	// Use this for initialization
 	void Start () {
@@ -15,7 +16,9 @@ public class Camera : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		rotY += speed;
+		Random.seed = (int)(Time.time*Time.deltaTime);
+		plus = (Random.Range(0,100) >= 90) ? !plus : plus;
+		rotY = (plus) ? rotY+speed : rotY-speed;
 		this.transform.rotation = Quaternion.Euler(rotX, rotY, 0);
 	}
 }
