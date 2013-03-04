@@ -9,5 +9,7 @@ public class Base : MonoBehaviour {
 	
 	// Update is called once per frame
 	void OnTriggerEnter () {
+		var audio = this.GetComponent<AudioSource>();
+		audio.Play();
 	}
 }

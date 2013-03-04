@@ -12,21 +12,28 @@ public class Light : MonoBehaviour {
 	void Start () {
 		color = new Color(0.0f, 1.0f, 0.0f, 1.0f);
 		lightComponent = this.gameObject.GetComponent("Light");
+		StartCoroutine(ChangeColor());
 	}
 	
 	void Update () {
-		if ((int)Time.time%5 == 0) {
-			colorIndex++;
-			colorIndex %= 6;
-			switch(colorIndex){
-				case 0: color = new Color(1.0f, 0.0f, 0.0f, 1.0f); break;
-				case 1: color = new Color(0.0f, 1.0f, 0.0f, 1.0f); break;
-				case 2: color = new Color(0.0f, 0.0f, 1.0f, 1.0f); break;
-				case 3: color = new Color(1.0f, 1.0f, 0.0f, 1.0f); break;
-				case 4: color = new Color(1.0f, 0.0f, 1.0f, 1.0f); break;
-				case 5: color = new Color(0.0f, 1.0f, 1.0f, 1.0f); break;
-			}
-		}
 		lightComponent.light.color = Color.Lerp(lightComponent.light.color, color, Time.deltaTime);
+	}
+
+	IEnumerator ChangeColor () {
+		yield return new WaitForSeconds(5.0f);
+		Random.seed = (int)Time.time;
+		colorIndex = Random.Range(-1, 5);
+		colorIndex++;
+		switch(colorIndex){
+			case 0: color = new Color(1.0f, 0.0f, 0.0f, 1.0f); break;
+			case 1: color = new Color(0.0f, 1.0f, 0.0f, 1.0f); break;
+			case 2: color = new Color(0.0f, 0.0f, 1.0f, 1.0f); break;
+			case 3: color = new Color(1.0f, 1.0f, 0.0f, 1.0f); break;
+			case 4: color = new Color(1.0f, 0.0f, 1.0f, 1.0f); break;
+			case 5: color = new Color(0.0f, 1.0f, 1.0f, 1.0f); break;
+		}
+		StartCoroutine(ChangeColor());
+		yield break;
+		
 	}
 }

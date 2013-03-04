@@ -38,6 +38,12 @@ public class InputController : MonoBehaviour {
 	
 	void translateAxis ()
 	{
-		this.transform.position = new Vector3(x + Mathf.Cos(theta), 0, z + r * Mathf.Sin(theta));
+		this.transform.position = new Vector3(x + r * Mathf.Cos(theta), 0, z + r * Mathf.Sin(theta));
+	}
+	
+	void OnTriggerEnter ()
+	{
+		var audio = this.GetComponent<AudioSource>();
+		audio.Play();
 	}
 }

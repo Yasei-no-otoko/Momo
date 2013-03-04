@@ -12,13 +12,20 @@ public class Camera : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		rotX = this.transform.localEulerAngles.x;
+		StartCoroutine(ChangeRotation());
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		Random.seed = (int)(Time.time*Time.deltaTime*1000);
-		plus = (Random.Range(0,1000) >= 999) ? !plus : plus;
 		rotY = (plus) ? rotY+speed : rotY-speed;
 		this.transform.rotation = Quaternion.Euler(rotX, rotY, 0);
+	}
+	
+	IEnumerator ChangeRotation () {
+		yield return new WaitForSeconds(10f);
+		Random.seed = (int)(Time.time*Time.deltaTime*1000);
+		plus = (Random.Range(0,2) == 0) ? !plus : plus;
+		StartCoroutine(ChangeRotation());
+		yield break;
 	}
 }
