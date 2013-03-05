@@ -22,7 +22,7 @@ public class Light : MonoBehaviour {
 	IEnumerator ChangeColor () {
 		yield return new WaitForSeconds(5.0f);
 		Random.seed = (int)Time.time;
-		colorIndex = Random.Range(-1, 5);
+		colorIndex = Random.Range(-1, 11);
 		colorIndex++;
 		switch(colorIndex){
 			case 0: color = new Color(1.0f, 0.0f, 0.0f, 1.0f); break;
@@ -31,6 +31,12 @@ public class Light : MonoBehaviour {
 			case 3: color = new Color(1.0f, 1.0f, 0.0f, 1.0f); break;
 			case 4: color = new Color(1.0f, 0.0f, 1.0f, 1.0f); break;
 			case 5: color = new Color(0.0f, 1.0f, 1.0f, 1.0f); break;
+			case 6: color = new Color(0.5f, 0.8f, 1.0f, 1.0f); break;
+			case 7: color = new Color(0.8f, 1.0f, 0.5f, 1.0f); break;
+			case 8: color = new Color(1.0f, 0.5f, 0.8f, 1.0f); break;
+			case 9: color = new Color(0.5f, 1.0f, 0.8f, 1.0f); break;
+			case 10: color = new Color(0.8f, 0.5f, 0.8f, 1.0f); break;
+			case 11: color = new Color(1.0f, 0.8f, 0.5f, 1.0f); break;
 		}
 		StartCoroutine(ChangeColor());
 		yield break;

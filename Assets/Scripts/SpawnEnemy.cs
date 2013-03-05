@@ -25,7 +25,7 @@ public class SpawnEnemy : MonoBehaviour {
 	// Update is called once per frame
 	IEnumerator Spawn () {
 		Random.seed = (int)(Time.time*Time.deltaTime*1000);
-		yield return new WaitForSeconds(Random.value+0.4f);
+		yield return new WaitForSeconds(Random.value*3f+0.4f);
 		Random.seed = (int)(Time.time*Time.deltaTime*1000);
 		Debug.Log("Time.time:" + Time.time);
 		Debug.Log("Random.value:" +Random.value);

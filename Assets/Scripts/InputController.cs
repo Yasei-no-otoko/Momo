@@ -26,13 +26,13 @@ public class InputController : MonoBehaviour {
 		{
 			Debug.Log("A pushed");
 			theta += speed;
-			translateAxis();
+			this.transform.position = new Vector3 (x + r * Mathf.Cos(theta), 0, z + r * Mathf.Sin(theta));
 		}
 		else if (Input.GetKey(KeyCode.D) || Input.GetKeyDown(KeyCode.D))
 		{
 			Debug.Log("D pushed");
 			theta -= speed;
-			translateAxis();
+			this.transform.position = new Vector3(x + r * Mathf.Cos(theta), 0, z + r * Mathf.Sin(theta));
 		}
 	}
 	
