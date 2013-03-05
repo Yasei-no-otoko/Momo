@@ -7,16 +7,11 @@ public class EnemyController : MonoBehaviour {
 	[SerializeField]
 	public float speedRatio = 0.2f;
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
 	// Update is called once per frame
 	void Update () {
 		 this.transform.position = Vector3.MoveTowards(this.transform.localPosition, targerPosition, speedRatio);
 	}
-	
+
 	void OnTriggerEnter (Collider t) {
 		if (t.name == "Player" || t.name == "Base")
 		{

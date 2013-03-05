@@ -21,7 +21,7 @@ public class SpawnEnemy : MonoBehaviour {
 	void Start () {
 		StartCoroutine(Spawn());
 	}
-	
+
 	// Update is called once per frame
 	IEnumerator Spawn () {
 		Random.seed = (int)(Time.time*Time.deltaTime*1000);

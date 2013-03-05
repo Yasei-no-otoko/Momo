@@ -19,7 +19,7 @@ public class InputController : MonoBehaviour {
 		z = this.transform.position.z;
 		translateAxis();
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
 		if (Input.GetKey(KeyCode.A) || Input.GetKeyDown(KeyCode.A))
@@ -35,12 +35,12 @@ public class InputController : MonoBehaviour {
 			this.transform.position = new Vector3(x + r * Mathf.Cos(theta), 0, z + r * Mathf.Sin(theta));
 		}
 	}
-	
+
 	void translateAxis ()
 	{
 		this.transform.position = new Vector3(x + r * Mathf.Cos(theta), 0, z + r * Mathf.Sin(theta));
 	}
-	
+
 	void OnTriggerEnter ()
 	{
 		var audio = this.GetComponent<AudioSource>();

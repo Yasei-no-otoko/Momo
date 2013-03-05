@@ -5,7 +5,7 @@ public class Camera : MonoBehaviour {
 	[SerializeField]
 	public float speed = 0.5f;
 	public float rotY = 0.0f;
-	
+
 	private float rotX = 0.0f;
 	private bool plus = true;
 	private bool flag = false;
@@ -16,13 +16,13 @@ public class Camera : MonoBehaviour {
 		StartCoroutine(ChangeRotation());
 		StartCoroutine(SpeedUp());
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
 		rotY = (plus) ? rotY+speed : rotY-speed;
 		this.transform.rotation = Quaternion.Euler(rotX, rotY, 0);
 	}
-	
+
 	IEnumerator ChangeRotation () {
 		Random.seed = (int)(Time.time*Time.deltaTime*1000);
 		yield return new WaitForSeconds(Random.value*5f+3f);
@@ -30,7 +30,7 @@ public class Camera : MonoBehaviour {
 		StartCoroutine(ChangeRotation());
 		yield break;
 	}
-	
+
 	IEnumerator SpeedUp () {
 		Random.seed = (int)(Time.time*Time.deltaTime*1000);
 		yield return new WaitForSeconds((float)Random.Range(5, 10));

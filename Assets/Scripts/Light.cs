@@ -14,7 +14,7 @@ public class Light : MonoBehaviour {
 		lightComponent = this.gameObject.GetComponent("Light");
 		StartCoroutine(ChangeColor());
 	}
-	
+
 	void Update () {
 		lightComponent.light.color = Color.Lerp(lightComponent.light.color, color, Time.deltaTime);
 	}
@@ -40,6 +40,5 @@ public class Light : MonoBehaviour {
 		}
 		StartCoroutine(ChangeColor());
 		yield break;
-		
 	}
 }
